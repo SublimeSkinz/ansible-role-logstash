@@ -10,3 +10,12 @@
     - 01-beats-input.conf
     - 30-elasticsearch-output.conf
   notify: restart logstash
+
+- name: Create filter
+  copy:
+    src: filter-json.conf
+    dest: /etc/logstash/conf.d/filter-json.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart logstash
